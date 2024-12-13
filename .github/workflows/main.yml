@@ -2,8 +2,8 @@ name: Webpage Monitor
 
 on:
   schedule:
-    - cron: "*/10 * * * *"  # Runs every 10 minutes
-  workflow_dispatch:  # Allows manual triggering of the workflow
+    - cron: "*/10 * * * *"  # Runs every 10 minutes (adjust as needed)
+  workflow_dispatch:  # This allows you to manually trigger the workflow
 
 jobs:
   monitor:
@@ -21,6 +21,10 @@ jobs:
     - name: Install dependencies
       run: |
         pip install requests plyer
+
+    - name: Check if monitor.py exists
+      run: |
+        ls -la  # This will show the file structure and confirm if monitor.py is present.
 
     - name: Run monitor script
       run: |
